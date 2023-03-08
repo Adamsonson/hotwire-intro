@@ -3,8 +3,10 @@
     <%= form_with url: root_path do |f| %>
       <%= f.text_field :query, class: "form_control", "data-controller": :search %>
     <% end %>
+    <%= render "welcome/results" %>
   </div>
 
   <div class="col-8">
+    <%= turbo_frame_tag :show_content %>
   </div>
 </div>

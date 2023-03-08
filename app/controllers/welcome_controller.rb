@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.html {}
       format.turbo_stream {
-        render turbo_stream: turbo_stream.replace("target", partial: "welcome/results")
+        render turbo_stream: turbo_stream.replace("results", partial: "welcome/results")
       }
     end
   end
