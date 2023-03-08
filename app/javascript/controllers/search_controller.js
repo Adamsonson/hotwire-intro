@@ -10,11 +10,13 @@ export default class extends Controller {
     let params = new URLSearchParams()
     params.append("query", this.element.value)
 
-    fetch(`\?${params}`), {
+    fetch(`\?${params}`, {
       method: "GET",
       headers: {
-        Accept: "text"
+        Accept: "text/vnd.turbo-stream.html"
       }
-    }
+    })
+      .then(r => r.text())
+      .then(html => Turbo.renderStreamMessage(html))
   }
 }
